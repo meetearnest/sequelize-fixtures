@@ -107,6 +107,21 @@ describe('fixture (with promises)', function() {
             });
     });
 
+    it('should duplicate fixtures when duplicate check is disabled', function() {
+        return sf.loadFixture(FOO_FIXTURE, models, {skipDuplicateCheck: true})
+            .then(function() {
+                return sf.loadFixture(FOO_FIXTURE, models, {skipDuplicateCheck: true});
+            }).then(function() {
+                return models.Foo.count({
+                    where: {
+                        propA: 'bar'
+                    }
+                });
+            }).then(function(c) {
+                c.should.equal(2);
+            });
+    });
+
     it('should load multiple fixtures', function() {
         return sf.loadFixtures([FOO_FIXTURE, {
             model: 'Foo',
