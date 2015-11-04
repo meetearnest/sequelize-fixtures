@@ -3,7 +3,7 @@ var sf     = require('../index'),
     models = require('./models'),
     Promise = require('bluebird'),
     sinon = require('sinon')
-;
+    ;
 
 beforeEach(function(){
     return models.sequelize.drop().then(function() {
@@ -454,7 +454,7 @@ describe('fixture (with promises)', function() {
             data = {id: 3},
             instance = models.Foo.build(),
             instanceMock = sinon.mock(instance)
-        ;
+            ;
 
         models.sequelize.transaction(function(t) {
             FooMock.expects('find').once().returns(findDeferred.promise).withExactArgs({

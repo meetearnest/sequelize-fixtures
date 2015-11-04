@@ -3,11 +3,12 @@ var Sequelize = require('sequelize'),
         dialect: 'sqlite',
         storage: 'testdb.sqlite',
         logging: false
-});
+    }
+);
 
 exports.sequelize = sequelize;
 exports.all = [];
-['Foo', 'Bar', 'Article', 'Person', 'Project', 'Actor', 'Movie', 'Producer', 'Play'].forEach( function (model) {
+['Foo', 'Bar', 'Article', 'Person', 'Project', 'Actor', 'Movie', 'Producer', 'Play'].forEach(function (model) {
     var mod = sequelize.import(__dirname + '/' + model);
     module.exports[model] = mod;
     exports.all.push(mod);

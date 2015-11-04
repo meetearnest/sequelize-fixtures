@@ -20,7 +20,7 @@ function wrap(fn) {
             }
             promise = fn(fixtures, models, initopts(options));
             if (cb) {
-                console.warn("Sequelize-fixtures: callback arguments are deprecated, please use returned promises.");
+                console.warn('Sequelize-fixtures: callback arguments are deprecated, please use returned promises.');
                 promise.then(function () {
                     cb();
                 }, function (err) {

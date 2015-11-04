@@ -5,8 +5,7 @@ module.exports = function(grunt) {
         var data = this.data,
             models = data.models,
             done = this.async(),
-            options = data.options  || {},
-            loader;
+            options = data.options  || {};
 
         if (typeof models == 'string') {
             models = require(models);
